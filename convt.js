@@ -39,30 +39,16 @@ function converter(youtubelink, audio_tag){
           console.log(stream);
           switch (itag) {
             case 139:
-              quality = "48kbps";
-              break;
-            case 140:
-              quality = "128kbps";
-              break;
-            case 141:
               quality = "130kbps";
               break;
-            case 249:
-              quality = "webm_l";
-              break;
-            case 250:
-              quality = "webm_m";
-              break;
-            case 251:
-              quality = "webm_h";
-              break;
+           
           }
           if (quality) audio_streams[quality] = stream.url;
         });
 
         console.log(audio_streams);
 
-        audio_tag.src = audio_streams['130kbps'] || audio_streams['128kbps'] || audio_streams['48kbps'];
+        audio_tag.src = audio_streams['48kbps'];
         audio_tag.play();
       })
     }
